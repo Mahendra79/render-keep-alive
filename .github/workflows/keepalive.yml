@@ -1,0 +1,25 @@
+name: Keep Render Awake
+
+on:
+  schedule:
+    - cron: "*/4 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Rotate URL Ping
+        run: |
+          urls=(
+          "https://edu.siasoftwareinnovations.com/"
+          "https://edu.siasoftwareinnovations.com/course/52"
+          "https://edu.siasoftwareinnovations.com/login"
+          )
+
+          index=$(( $(date +%s) / 240 % ${#urls[@]} ))
+          url=${urls[$index]}
+
+          echo "Pinging $url"
+          curl -s $url
