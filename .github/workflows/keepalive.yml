@@ -13,7 +13,7 @@ jobs:
       - name: Rotate URL Ping
         run: |
           urls=(
-          "https://edu.siasoftwareinnovations.com/"
+          "https://sia-edu.onrender.com/health/"
           "https://edu.siasoftwareinnovations.com/course/52"
           "https://edu.siasoftwareinnovations.com/login"
           )
